@@ -1,4 +1,25 @@
 <details>
+  <summary>
+    MEMORY LAYOUT
+  </summary>
+  
+# LAYOUT OF MEMORY 
+  
+ ![image](https://github.com/liamnguyen2702/Embedded_Class/assets/133777741/8748c934-a799-4e3b-8680-cea8de9b2769)
+  
+ - Text (Text Segment):
+ - Ds (Initialized Data Segment):
+ - Bss (Uninitialized Data Segment):
+ - Heap (Dynamic Memory Allocation):
+ - Stack (Automatic Variable Storage): 
+
+ </details>
+
+
+
+
+
+<details>
 <summary> 
   BITWISE OPERATORS
   </summary>
@@ -57,7 +78,7 @@
   | STRUCT | UNION |
   |--------|-------|
   | Size of Struct = sum of all members | Size of Union = the size of the highest one |
-  | Can initialize all structure members at a time | Can initialize one union member at a time |
+  | Can initialize all structure members at a time | Can initialize one union member only at a time |
   | Can access all structure members at a time | Can access one union member at a time |
   
   </details>
