@@ -1,4 +1,5 @@
-BITWISE OPERATORS
+<details>
+**BITWISE OPERATORS**
 
   1, The & (bitwise AND) - The result of AND is 1 only if both bits are 1. (time)
   
@@ -20,3 +21,6 @@ BITWISE OPERATORS
 
   6, The >> (right shift) - Takes tow numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. (delete the right) 
   
+ </details>
+  
+STRUCT AND UNION COMPARISION
