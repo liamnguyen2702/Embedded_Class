@@ -45,7 +45,7 @@
   
   5, The << (left shift) - Takes two numbers, left shifts the bits of the first operand, and the second operand decides the number of places to shift. (delete the left)
 
-  6, The >> (right shift) - Takes tow numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. (delete the right) 
+  6, The >> (right shift) - Takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. (delete the right) 
   
  </details>
   
