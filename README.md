@@ -7,11 +7,11 @@
   
  ![image](https://github.com/liamnguyen2702/Embedded_Class/assets/133777741/8748c934-a799-4e3b-8680-cea8de9b2769)
   
- - Text (Text Segment):
- - Ds (Initialized Data Segment):
- - Bss (Uninitialized Data Segment):
- - Heap (Dynamic Memory Allocation):
- - Stack (Automatic Variable Storage): 
+ - Stack (Automatic Variable Storage): Automatic memory allocation, contain function frame during program execution 
+ - Heap (Dynamic Memory Allocation): Dynamic memory allocation by malloc/calloc/new
+ - Bss (Uninitialized Data Segment): Global & Static variable that uninitialized or initialized to 0
+ - Ds (Initialized Data Segment): Global & Static variable that initialized by programers
+ - Text (Text Segment): Contain code (Program instruction)
 
  </details>
 
