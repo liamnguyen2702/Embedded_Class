@@ -1,5 +1,101 @@
 <details>
   <summary>
+    POINTER
+  </summary>
+
+  A pointer is a variable whose value is the address of another variable, i.e., direct address of the memory location. Like any variable or constant, you must declare a pointer before using it to store any variable address. The general form of a pointer variable declaration is −
+  
+  ```C
+  type *var-name;
+  ```
+  ```C
+  #include <stdio.h>
+  
+  int main()
+  {
+      int n = 10; 
+      int *p = &n; // declare p having value = the address of n;
+      or
+      int *p;
+      p = &n;
+      return 0;
+  }
+  ```
+  The value of the variable that pointer is pointing equal *p - 
+  ```C
+  printf("The value of variable that p is pointing = %d", *p);
+  ```
+  It produces the following result - 
+  ```C
+  The value of variable that p is pointing = 10
+  ```
+  
+  ### NULL Pointer
+  
+  The NULL pointer is a constant with a value of zero defined in several standard libraries. Consider the following program −
+  
+  ```C
+  #include <stdio.h>
+  
+  int main()
+  {
+      int *ptr = NULL;
+      printf("The value of ptr is: %x\n", ptr);
+      return 0;
+  }
+  ```
+  When the above code is compiled and executed, it produces the following result - 
+  ```C
+  The value of ptr is 0
+  ```
+
+  ### Pointer Function
+  ```C
+  #include <stdio.h>
+  
+  void sum(int a, int b)
+  {
+    printf("Sum of %d and %d = %d\n, a, b, a + b);
+  }
+  int main()
+  {
+    void (*ptr) (int, int) = NULL;
+    ptr = &sum;
+    ptr(9, 7);
+    return 0;
+  }
+  ```
+  
+  It produces the result below - 
+  ```C
+  Sum of 9 and 7 = 16
+  ```
+  
+  ### Void Pointer
+  
+  A pointer of type void is a general pointer variable, it can take the address of any variable of any data type.
+
+  ### Pointer to Pointer
+  
+  ```C
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{   
+    char *array = "hello"; // save as text area - only read
+    char array[] = "hello"; // save as stack area - can write
+    char *array2[] = {"Hi", "hello", "wolrd"}; 
+    printf("Test: %s\n", *array2);
+    return 0;
+}
+  ```
+
+</details>
+
+
+<details>
+  <summary>
     MEMORY LAYOUT
   </summary>
   
