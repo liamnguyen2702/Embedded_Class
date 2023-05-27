@@ -95,7 +95,7 @@ int main()
 	
 	
   <details>
-<summary>STRUCT AND UNION COMPARISION</summary>
+<summary>STRUCT - UNION</summary>
   
 # STRUCT AND UNION COMPARISION
   
@@ -119,7 +119,7 @@ int main()
 	
 <details>
 <summary> 
-  BITWISE OPERATORS
+  BITS MANIPULATION
   </summary>
   
 # BITWISE OPERATORS 
