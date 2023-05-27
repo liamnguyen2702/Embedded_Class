@@ -110,7 +110,7 @@ int main()
 -------------------------------------------------------------
 	
   <details>
-<summary> STATIC VARIABLE </summary>
+<summary> STATIC VARIABLES </summary>
  </details>	
 	
 	
