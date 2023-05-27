@@ -118,9 +118,7 @@ int main()
 	
 	
 <details>
-<summary> 
-  BITS MANIPULATION
-  </summary>
+<summary> BITS MANIPULATION </summary>
   
 # BITWISE OPERATORS 
 
@@ -175,9 +173,7 @@ int main()
 -------------------------------------------------------------
 	
 <details>
-  <summary>
-    MEMORY LAYOUT
-  </summary>
+  <summary> MEMORY PARTITIONING </summary>
   
 # LAYOUT OF MEMORY 
   
