@@ -91,30 +91,32 @@ int main()
 
 </details>
 
-
+ -------------------------------------------------------------
+	
+	
+  <details>
+<summary>STRUCT AND UNION COMPARISION</summary>
   
+# STRUCT AND UNION COMPARISION
   
-<details>
-  <summary>
-    MEMORY LAYOUT
-  </summary>
+  | STRUCT | UNION |
+  |--------|-------|
+  | Size of Struct = sum of all members | Size of Union = the size of the highest one |
+  | Can initialize all structure members at a time | Can initialize one union member only at a time |
+  | Can access all structure members at a time | Can access one union member at a time |
   
-# LAYOUT OF MEMORY 
-  
- ![image](https://github.com/liamnguyen2702/Embedded_Class/assets/133777741/8748c934-a799-4e3b-8680-cea8de9b2769)
-  
- - Stack (Automatic Variable Storage): Automatic memory allocation, contain function frame during program execution 
- - Heap (Dynamic Memory Allocation): Dynamic memory allocation by malloc/calloc/new
- - Bss (Uninitialized Data Segment): Global & Static variable that uninitialized or initialized to 0
- - Ds (Initialized Data Segment): Global & Static variable that initialized by programers
- - Text (Text Segment): Contain code (Program instruction)
-
- </details>
-
-
-
-
-
+  </details>
+	
+-------------------------------------------------------------
+	
+  <details>
+<summary> STATIC VARIABLE </summary>
+ </details>	
+	
+	
+------------------------------------------------------------------------------------------	
+	
+	
 <details>
 <summary> 
   BITWISE OPERATORS
@@ -161,18 +163,40 @@ int main()
   6, The >> (right shift) - Takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. (delete the right) 
   
  </details>
- 
+
 	
+-------------------------------------------------------------
 	
   <details>
-<summary>STRUCT AND UNION COMPARISION</summary>
+<summary> MACRO - INLINE FUNCTIONS </summary>
+ </details>	
+	
+	
+-------------------------------------------------------------
+	
+<details>
+  <summary>
+    MEMORY LAYOUT
+  </summary>
   
-# STRUCT AND UNION COMPARISION
+# LAYOUT OF MEMORY 
   
-  | STRUCT | UNION |
-  |--------|-------|
-  | Size of Struct = sum of all members | Size of Union = the size of the highest one |
-  | Can initialize all structure members at a time | Can initialize one union member only at a time |
-  | Can access all structure members at a time | Can access one union member at a time |
+ ![image](https://github.com/liamnguyen2702/Embedded_Class/assets/133777741/8748c934-a799-4e3b-8680-cea8de9b2769)
   
-  </details>
+ - Stack (Automatic Variable Storage): Automatic memory allocation, contain function frame during program execution 
+ - Heap (Dynamic Memory Allocation): Dynamic memory allocation by malloc/calloc/new
+ - Bss (Uninitialized Data Segment): Global & Static variable that uninitialized or initialized to 0
+ - Ds (Initialized Data Segment): Global & Static variable that initialized by programers
+ - Text (Text Segment): Contain code (Program instruction)
+
+ </details>
+	
+--------------------------------------------------------------	
+	
+  <details>
+<summary> COMPILER </summary>
+ </details>
+
+	
+	
+
