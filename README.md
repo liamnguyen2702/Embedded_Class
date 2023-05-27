@@ -2,7 +2,7 @@
   <summary> POINTER </summary>
 
   A pointer is a variable whose value is the address of another variable, i.e., direct address of the memory location. Like any variable or constant, you must declare a pointer before using it to store any variable address. The general form of a pointer variable declaration is −
-  
+
   ```C
   type *var-name;
   ```
@@ -131,9 +131,7 @@ int main()
   |1|0|  0|
   |1|1|  1|
   
-  
   2, The | (bitwise OR) - The result of OR is 1 if any of the two bits is 1.
-  
   
  | A | B | A \| B |
   |---|---|:---:|
@@ -141,7 +139,6 @@ int main()
   |0|1|  1|
   |1|0|  1|
   |1|1|  1|
-  
   
   3, The ^ (bitwise XOR) - The result of XOR is 1 if the two bits are different.   
 
@@ -158,14 +155,15 @@ int main()
   |--|:---:|
   |0|  1|
   |1|  0|
-
   
   5, The << (left shift) - Takes two numbers, left shifts the bits of the first operand, and the second operand decides the number of places to shift. (delete the left)
 
   6, The >> (right shift) - Takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. (delete the right) 
   
  </details>
-  
+ 
+	
+	
   <details>
 <summary>STRUCT AND UNION COMPARISION</summary>
   
