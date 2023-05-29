@@ -96,7 +96,20 @@ int main()
 <details>
   <summary> EXTERN </summary>
 		
-DFSDFSDF
+- To access a global variable in 2 different files
+- Suppose there is a global file in file test.c, it can be used in file main.c
+```C
+	extern int count;
+```
+- Being use in a large project while unknow where the library to include -> using extern.
+- "Extern" is a variable and being located in 2 different files.
+- In addition, "extern" can be using for function.
+```C
+	extern void dem(); // add function dem () from other file
+```
+- Can not "extern" a global static variable
+- Otherwise: "Extern" still allow a function when having a global static variable in. 
+	
 </details>
 	
 -------------------------------------------------------------		
