@@ -6,9 +6,9 @@
 
 int main()
 {
-    printf("MAX = %d\n", MAX);
+    printf("MAX = %d\n", MAX); // MAX = 10
   
-    printf("Tong a va b = %d\n", SUM (7,8));
+    printf("Tong a va b = %d\n", SUM (7,8)); // Tong a va b = 15
   
     return 0; 
 }
