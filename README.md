@@ -93,6 +93,13 @@ int main()
 
  -------------------------------------------------------------
 	
+<details>
+  <summary> EXTERN </summary>
+		
+DFSDFSDF
+</details>
+	
+-------------------------------------------------------------		
 	
   <details>
 <summary>STRUCT - UNION</summary>
