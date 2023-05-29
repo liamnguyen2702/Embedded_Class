@@ -180,11 +180,64 @@ int main()
  ![image](https://github.com/liamnguyen2702/Embedded_Class/assets/133777741/8748c934-a799-4e3b-8680-cea8de9b2769)
   
  - Stack (Automatic Variable Storage): Automatic memory allocation, contain function frame during program execution 
+	- Access is Read and Write
+	- Using to allocate to local variables, input parameters of functions
+	- Released at the end of the code block or function
  - Heap (Dynamic Memory Allocation): Dynamic memory allocation by malloc/calloc/new
- - Bss (Uninitialized Data Segment): Global & Static variable that uninitialized or initialized to 0
- - Ds (Initialized Data Segment): Global & Static variable that initialized by programers
- - Text (Text Segment): Contain code (Program instruction)
+	- Access is Read and Write
+	- Using to allocate dynamic memory such as Malloc, Calloc,...
+	- Released at the free function is called
+ - Bss (Uninitialized Data Segment):
+	- Access is Read and Write
+	- Contains global or static variables with a zero (0) initialized or un initialized
+	- Released at the end of the program
+ - Ds (Initialized Data Segment): 
+	- Access is Read and Write
+	- Contains a global or static variables with a non-zero initialized value
+	- Released at the end of the program
+ - Text (Text Segment):
+	- Contain code (Program instruction)
+	- Read only access and it contains instructions to execute, so avoid modifying instruction.
+	- Contains declaration of constants in the program (.rodata)
 
+# Heap and Stack ?
+	
+- Heap and Stack memory are essentially the same memory that is creaated and stored in RAM when the program is executed.
+	
+- Stack memory is used to store local variables in functions, parameters passed in,...Access to this memory very fast and is executed when the program is compliled.
+	
+- Heap memory is used to store memory for pointer variables dynamically allocated by functions malloc - calloc - realloc (in C)
+	
+- Area size:
+	- Stack: The size of the Stack memory is fixed, depending on the operating system, for instance, Windows operating system is 1MB, Linux operating is 8MB (note that the number may differ depending on your operating system architecture).
+	- Heap: The size of the Heap memory is not fixed, it can be increased or decreased to meet the data storage needs of the program.
+- Characteristics of the memory area:
+	- Stack: Stack memory is managed by the operating system, the data stored in the Stack will automatically be destroyed when the function completes its work.
+	- Heap: The Heap is managed by the programmer (in C or C++), the data in the Heap will not be destroyed when the function is done, that means you have to manually destroy the memory are with the free statement (in C), and delete or delete[] (in C++), otherwise a memory leak will occur. 
+	
+Note: automatic memory cleanup depends on the intermediate compiler
+	
+- An error occurred in the memory area:
+	- Stack: Because the memory of the Stack is fixed, if your program uses too much memory beyond the storage capacity of the Stack, Stack overflow will inevitably occur such as: initialize too many local variables, infinitely recursive function,...
+	- Example of Stack overflow with infinite recursion: 
+```C
+	int foo (int x)
+	{
+		printf("De quy khong gioi han\n");
+		return foo(x);
+	}
+```
+
+- Heap: 
+	- If continously allocating memory without freeing it, you will get a Heap overflow error.
+	- If initializing a memory area that is too large that the Heap connot be stored once, the Heap initialization error will fail.
+	- Example case initialization of Heap memory is too large:
+	
+```C
+	int *A = (int*) malloc (12983781273981273981273891273891273);
+```
+	
+	
  </details>
 	
 --------------------------------------------------------------	
@@ -197,13 +250,9 @@ int main()
 It is the process of converting high-level programing language such as C, C++, and Python into languages that computers can understand and execute. In short, "Compiler" will turn .c files into hex files to load into MCUs.
 	  
 	The compilation process is divided into 4 main stages:
-	  
 	  - Pre-processcor: Get source code & delete comments, process preprocessor commands
-	 
 	  - Translate high-level programing languages (H-LPL) to Assembly
-	 
 	  - Translate Assembly into machine language: Translate Assembly code to code 0 1 and generate .0 file
-	 
 	  - Linking stage: Link the object files and library files together and create the executable file
 	
 	  
