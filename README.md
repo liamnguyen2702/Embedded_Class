@@ -131,6 +131,36 @@ int main()
 	
   <details>
 <summary> STATIC VARIABLES </summary>
+	  
+## Local Static Variable
+
+- The local static variables is initialized once and lasts the entire all the program.
+```C
+	void excample()
+	  {
+	  	static int a = 15;
+	  	printf ("a = %d\n", a);
+	  	a++;
+	  }
+	  
+	  int main()
+	  {
+	  	example(); // 15
+	  
+	  	example(); // 16
+	  	
+	  	example(); // 17
+	  
+	  	return 0;
+	  }
+	  	
+```
+	  
+## Global Static Variable
+- The global static variables are only valid in the file those variables are created
+- Using by all of functions in initial file
+- Can not called from the other files.
+	  
  </details>	
 	
 	
@@ -187,6 +217,44 @@ int main()
 	
   <details>
 <summary> MACRO - INLINE FUNCTIONS </summary>
+	  
+## Macro
+	  
+- Take place in preprocessing 
+- Macro is actually replacing the definition in main 
+```C
+	  #define MAX 10;
+```
+- For example: 
+```C	
+	  #define SUM(a, b) a + b
+	  #define CREATE_FUNC (func_name, content)	\
+	  void func_name()				\
+	  	{					\	
+	  		printf("%s\n", content);	\
+	  	}
+```
+- Using operator "\" when having to enter in macro.
+- Disadvantage: the size of the compiled file will be larger because of calling multiple times.
+- Advantage: Decrease the time of program.
+	  
+## Function
+
+- When the function is called, the compiler stores the poiter address at that location. The pointer will continue to jump into the function and execute the entire function. After the funtion ends, the pointer will return the address before jumping into the function and continuing the program.
+- For instance:
+```C
+	  void SUM(int a, int b)
+	  {
+	  	printf("%d", a + b);
+	  }
+```
+	  	
+## Inline function
+	  
+- A funtion declared with the inline keywork and processed by the compiler. At the place where the inline function appears, the compiler will replace the inline function with the code of the compiled function (the code has been converted to assembly code).
+- Inline makes the code longer but takes less time to run than the function.
+	  
+
  </details>	
 	
 	
