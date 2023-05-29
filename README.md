@@ -193,6 +193,8 @@ int main()
 <summary> COMPILER </summary>
  </details>
 
-	
+	![Compilation-Process-in-C](https://github.com/liamnguyen2702/Embedded_Class/assets/133777741/7cc2e044-57d1-43d2-b0bf-e15f3d9ee611)
+
+
 	
 
