@@ -241,6 +241,7 @@ int main()
 ## Function
 
 - When the function is called, the compiler stores the poiter address at that location. The pointer will continue to jump into the function and execute the entire function. After the funtion ends, the pointer will return the address before jumping into the function and continuing the program.
+- Programing running time is slow, while the code is more concise. 
 - For instance:
 ```C
 	  void SUM(int a, int b)
@@ -253,6 +254,23 @@ int main()
 	  
 - A funtion declared with the inline keywork and processed by the compiler. At the place where the inline function appears, the compiler will replace the inline function with the code of the compiled function (the code has been converted to assembly code).
 - Inline makes the code longer but takes less time to run than the function.
+	  
+```C
+	#include <stdio.h>
+
+	inline void test ()
+	{
+	} // 0xc4  0x05
+
+	int main()
+	{
+  		test (); // 0xc4 0x05
+  
+  		test (); // 0xc4 0x05
+  
+  	return 0;
+	}	  
+```
 	  
 
  </details>	
