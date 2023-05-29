@@ -191,10 +191,25 @@ int main()
 	
   <details>
 <summary> COMPILER </summary>
+
+![Compilation-Process-in-C](https://github.com/liamnguyen2702/Embedded_Class/assets/133777741/a6f67411-9f60-4150-873d-a59f51fca37d)
+	  
+It is the process of converting high-level programing language such as C, C++, and Python into languages that computers can understand and execute. In short, "Compiler" will turn .c files into hex files to load into MCUs.
+	  
+	The compilation process is divided into 4 main stages:
+	  
+	  - Pre-processcor: Get source code & delete comments, process preprocessor commands
+	 
+	  - Translate high-level programing languages (H-LPL) to Assembly
+	 
+	  - Translate Assembly into machine language: Translate Assembly code to code 0 1 and generate .0 file
+	 
+	  - Linking stage: Link the object files and library files together and create the executable file
+	
+	  
  </details>
 
 	
-![Compilation-Process-in-C](https://github.com/liamnguyen2702/Embedded_Class/assets/133777741/a6f67411-9f60-4150-873d-a59f51fca37d)
 
 
 	
