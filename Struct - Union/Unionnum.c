@@ -20,5 +20,10 @@ int main()
   {
     data.test2[i] = 2 * i;
   }
+  
+    for (int i = 0; i < 6; i++)
+  {
+    printf("Test1: %d\n", data.test1[i]);
+  }
   return 0;
 }
