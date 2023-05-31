@@ -4,8 +4,8 @@ void print(char c[], int size)
 {
     char tmp[size];
 
-    int dau = 0;
-    int duoi = size - 2;
+    int first = 0;
+    int last = size - 2;
     int i;
     int idx = 0;
 
@@ -13,30 +13,34 @@ void print(char c[], int size)
     {
         if (c[i] == ' ')
         {
-            dau = i + 1;
+            first = i + 1;
+
             int j;
-            for (j = dau; j <= duoi; j++)
+
+            for (j = first; j <= last; j++)
             {
                 tmp[idx++] = c[j];
             }
+
             tmp[idx++] = ' ';
-            duoi = dau - 2;
+            last = first - 2;
         }
     }
+
     int j;
-    for (j = 0; j <= duoi; j++)
+    for (j = 0; j <= last; j++)
     {
-        tmp[idx++] = c[j];
+        tmp[idx] = c[j];
+        idx++;
     }
-    printf("output: \"%s\"\n", tmp);
+    printf("Output: \"%s\"\n", tmp);
 }
 
 int main()
 {
     char c[] = "Chung toi da co gang het suc !";
     char size = sizeof(c) / sizeof(char);
-    printf("input: \"%s\"\n", c);
+    printf("Input: \"%s\"\n", c);
     print(c, size);
-
     return 0;
 }
