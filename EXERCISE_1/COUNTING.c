@@ -19,13 +19,12 @@ void count(int arr[], int length)
         }
     }
 
-    printf("%d\n", temp[60]);
     for (i = 0; i < 32000; i++)
     {
         if (temp[i] != 0)
-            printf("value: %d - appears %d tims\n", i, temp[i]);
+            printf("Value: %d appears %d times\n", i, temp[i]);
         if (temp2[i] != 0)
-            printf("value: %d - appears %d tims\n", -i, temp2[i]);
+            printf("Value: %d appears %d times\n", -i, temp2[i]);
     }
 }
 
