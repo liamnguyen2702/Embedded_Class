@@ -38,7 +38,7 @@ void print(char c[], int size)
 
 int main()
 {
-    char c[] = "Chung toi da co gang het suc!";
+    char c[] = "! suc het gang co da toi Chung";
     char size = sizeof(c) / sizeof(char);
     printf("Input: \"%s\"\n", c);
     print(c, size);
