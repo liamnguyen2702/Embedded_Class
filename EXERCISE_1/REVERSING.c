@@ -5,7 +5,7 @@ void print(char c[], int size)
     char tmp[size];
 
     int first = 0;
-    int last = size - 2;
+    int last = size - 2; //string style + one more character
     int i;
     int idx = 0;
 
