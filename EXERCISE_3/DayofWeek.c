@@ -47,7 +47,7 @@ int input(int d, int m, int y)
     return (totalDays % 7);
 }
 
-void DayofWeek(long long int number)
+void DayofWeek(int number)
 {
     char *dayname;
 
