@@ -1,23 +1,23 @@
 #include <stdio.h>
 
-float calculateCost(float km)
+float calculateCost(float distance)
 {
     float cost;
 
-    if (km <= 1)
+    if (distance <= 1)
         cost = 14;
-    else if (km <= 30)
-        cost = (km - 1) * 10 + 14;
+    else if (distance <= 30)
+        cost = (distance - 1) * 10 + 14;
     else
-        cost = 14 + 29 * 10 + (km - 30) * 8;
+        cost = 14 + 29 * 10 + (distance - 30) * 8;
     return cost;
 }
 
 int main()
 {
-    float km = 1;
+    float distance = 41;
 
-    printf("Cost = %.2f thousand dong\n", calculateCost(km));
+    printf("Cost = %.2f thousand dong\n", calculateCost(distance));
 
     return 0;
 }
