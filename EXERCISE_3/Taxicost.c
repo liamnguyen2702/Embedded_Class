@@ -7,7 +7,7 @@ float calculateCost(float distance)
     if (distance <= 1)
         cost = 14;
     else if (distance <= 30)
-        cost = (distance - 1) * 10 + 14;
+        cost = 14 + (distance - 1) * 10;
     else
         cost = 14 + 29 * 10 + (distance - 30) * 8;
     return cost;
