@@ -15,7 +15,7 @@ float calculateCost(float distance)
 
 int main()
 {
-    float distance = 41;
+    float distance = 41.5;
 
     printf("Cost = %.2f thousand dong\n", calculateCost(distance));
 
