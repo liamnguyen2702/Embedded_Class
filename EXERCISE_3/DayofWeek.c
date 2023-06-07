@@ -1,34 +1,22 @@
 #include <stdio.h>
 
-int day, month, year;
-
-int isLeapyear(int year)
+int isLeapYear(int year)
 {
-    if (year % 4 == 0)
-    {
-        if (year % 100 == 0)
-        {
-            if (year % 400 == 0)
-                return 1;
-            else
-                return 0;
-        }
-        else
-            return 1;
-    }
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+        return 1;
     else
         return 0;
 }
 
-int input(int d, int m, int y)
+int calculateDays(int day, int month, int year)
 {
     int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    long long int totalDays = 77;
+    long long int totalDays = 0;
 
     int i;
     for (i = 1583; i < year; i++)
     {
-        if (isLeapyear(i))
+        if (isLeapYear(i))
             totalDays += 366;
         else
             totalDays += 365;
@@ -36,7 +24,7 @@ int input(int d, int m, int y)
 
     for (i = 0; i < month - 1; i++)
     {
-        if (i == 1 && isLeapyear(year))
+        if (i == 1 && isLeapYear(year))
             totalDays += 29;
         else
             totalDays += daysInMonth[i];
@@ -47,44 +35,22 @@ int input(int d, int m, int y)
     return (totalDays % 7);
 }
 
-void DayofWeek(int number)
+const char *getDayName(int dayOfWeek)
 {
-    char *dayname;
-
-    switch (number)
-    {
-    case 0:
-        dayname = "Friday";
-        break;
-    case 1:
-        dayname = "Saturday";
-        break;
-    case 2:
-        dayname = "Sunday";
-        break;
-    case 3:
-        dayname = "Monday";
-        break;
-    case 4:
-        dayname = "Tuesday";
-        break;
-    case 5:
-        dayname = "Wednesday";
-        break;
-    case 6:
-        dayname = "Thursday";
-        break;
-    }
-    printf("That day is: %s\n", dayname);
+    const char *dayNames[] = {"Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"};
+    return dayNames[dayOfWeek];
 }
 
 int main()
 {
+    int day, month, year;
+
     printf("Enter the date (DD/MM/YYYY): ");
     scanf("%d/%d/%d", &day, &month, &year);
 
-    DayofWeek(input(day, month, year));
+    int weekDays = calculateDays(day, month, year);
+    const char *dayName = getDayName(weekDays);
+    printf("That day is: %s\n", dayName);
 
     return 0;
 }
-
