@@ -47,6 +47,12 @@ int main()
 
     printf("Enter the date (DD/MM/YYYY): ");
     scanf("%d/%d/%d", &day, &month, &year);
+    
+     if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1)
+    {
+        printf("Invalid date.\n");
+        return 1;
+    }
 
     int weekDays = calculateDays(day, month, year);
     const char *dayName = getDayName(weekDays);
