@@ -1,4 +1,70 @@
 <details>
+  <summary> MAKEFILE </summary>
+	
+Makefile - an important tool that automates and simplifies the process of compiling and linking source files in C/C++ programming projects. Makefile saves time, ensures consistency, and eases project management.
+	
+- Create a 'Makefile' file in the project directory.
+
+- Define variables in Makefile. 
+
+For example:
+
+```C
+CC := gcc
+CXX := g++
+CFLAGS := -Wall -Wextra -std=c11 -IHeader
+CXXFLAGS := -Wall -Wextra -std=c++11 -IHeader
+TARGET := main
+
+SRC_C := $(wildcard Source/*.c)
+SRC_CPP := $(wildcard Source/*.cpp)
+```
+	
+- `CC` and `CXX` are variables that define the C and C++ compilers to be used, respectively. In this case, `gcc` is set as the C compiler, and `g++` is set as the C++ compiler.
+
+- `CFLAGS` and `CXXFLAGS` are variables that specify the compiler flags for C and C++ compilation, respectively. The flags set in these variables include `-Wall` (enable all warnings), `-Wextra` (enable extra warnings), `-std=c11` (for C compilation using the C11 standard), and `-std=c++11` (for C++ compilation using the C++11 standard). Additionally, `-IHeader` adds the `Header` directory to the include path.
+
+- `TARGET` is a variable that specifies the name of the target executable, which in this case is set to `main`.
+
+- `SRC_C` and `SRC_CPP` are variables that use the `wildcard` function to find all `.c` and `.cpp` files, respectively, in the `Source` directory.
+```C
+.PHONY: all clean run
+
+all: $(TARGET)
+```
+- `.PHONY` is a special target that declares the following targets as "phony" or not representing actual files. This ensures that these targets are always executed regardless of whether there are files with the same name.
+
+- `all` is a target that depends on the `$(TARGET)` executable.
+```C
+$(TARGET): $(SRC_C) $(SRC_CPP)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+```
+- `$(TARGET)` is the target executable. It depends on the `$(SRC_C)` and `$(SRC_CPP)` files.
+
+- The line starting with `$(CXX)` is the command to build the target. It uses the C++ compiler (`g++`) and applies the `CXXFLAGS` (compiler flags) defined earlier. `$^` is an automatic variable that represents all the prerequisites (source files), and `$@` represents the target (the `$(TARGET)` executable). This line compiles and links all the source files into the `$(TARGET)` executable.
+	
+```C
+run: $(TARGET)
+	./$(TARGET)
+```
+- `run` is a target that depends on the `$(TARGET)` executable.
+
+- The line `./$(TARGET)` is the command to run the target executable.
+```C
+	clean:
+	$(RM) $(TARGET)
+```
+- `clean` is a target used for cleaning the project.
+
+- The line `$(RM)` `$(TARGET)` uses the `$(RM)` variable, which represents the remove command, to delete the `$(TARGET)` executable.
+
+In summary, this Makefile is designed to compile and build a C and C++ project. The `all` target is the default target and is responsible for building the `$(TARGET)` executable. The `run` target allows you to execute the `$(TARGET)` executable. The `clean` target removes the `$(TARGET)` executable.
+	
+</details>
+
+ -------------------------------------------------------------
+
+<details>
   <summary> POINTER </summary>
 
   A pointer is a variable whose value is the address of another variable, i.e., direct address of the memory location. Like any variable or constant, you must declare a pointer before using it to store any variable address. The general form of a pointer variable declaration is −
