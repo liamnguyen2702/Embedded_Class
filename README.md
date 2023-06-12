@@ -1,7 +1,7 @@
 <details>
   <summary> OOP </summary>
 	
-</detail>
+</details>
 -------------------------------------------------------------
 
 <details>
