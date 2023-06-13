@@ -1,6 +1,61 @@
 <details>
   <summary> CLASS - C++ </summary>
 	
+A `class` is a user-defined data type that we can use in our program, and it works as an object constructor, or a "blueprint" for creating objects.
+
+To create a class, use the class keyword:
+```C++
+class MyClass {       	// The class
+ 	public:    	// Access specifier
+    		int myNum;    	// Member variable - property
+    		string myString;  	// Attribute (string variable)
+	private:	// Access specifier
+		void () { 			// method 
+			printf("Hello World!");
+		}
+};
+```
+`Methods` are functions that belongs to the class.
+
+There are two ways to define functions that belongs to a class:
+Inside class definition
+Outside class definition
+In the following example, we define a function inside the class, and we name it "myMethod".
+```C++
+class MyClass {        // The class
+  public:              // Access specifier
+    	void myMethod() {  // Method/function defined inside the class
+      		cout << "Hello World!";
+    }
+};
+
+int main() {
+	MyClass myObj;     // Create an object of MyClass
+  	myObj.myMethod();  // Call the method
+  	return 0;
+}
+```
+A `constructor` in C++ is a special method that is automatically called when an object of a class is created.
+To create a constructor, use the same name as the class, followed by parentheses ():
+```C++
+class MyClass {     // The class
+	public:           // Access specifier
+		MyClass() {     // Constructor
+    		cout << "Hello World!";
+    	}
+};
+
+int main() {
+	MyClass myObj;    // Create an object of MyClass (this will call the constructor)
+  	return 0;
+}
+```
+	
+In C++, there are three access specifiers:
+
+- `public` - members are accessible from outside the class
+- `private` - members cannot be accessed (or viewed) from outside the class
+- `protected` - members cannot be accessed from outside the class, however, they can be accessed in inherited classes.
 </details>
 
 -------------------------------------------------------------
