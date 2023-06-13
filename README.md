@@ -1,5 +1,5 @@
 <details>
-  <summary> OOP </summary>
+  <summary> CLASS - C++ </summary>
 	
 </details>
 
