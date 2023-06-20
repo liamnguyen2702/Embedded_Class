@@ -1,4 +1,16 @@
 <details>
+  <summary> BASIC C++ </summary>
+
+### VECTOR
+### LIST 
+### STRING
+### MAP
+
+</details>
+
+-------------------------------------------------------------
+
+<details>
   <summary> CLASS - C++ </summary>
 	
 A `class` is a user-defined data type that we can use in our program, and it works as an object constructor, or a "blueprint" for creating objects.
