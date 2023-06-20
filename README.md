@@ -2,9 +2,193 @@
   <summary> BASIC C++ </summary>
 
 ### VECTOR
+
+```C++
+#include <iostream>
+#include <vector>
+
+int main() {
+    // Create a vector of integers
+    std::vector<int> myVector;
+
+    // Add elements to the vector
+    myVector.push_back(10);
+    myVector.push_back(20);
+    myVector.push_back(30);
+
+    // Access elements using index
+    std::cout << myVector[0] << std::endl;  // Output: 10
+
+    // Iterate over the vector using index
+    for (size_t i = 0; i < myVector.size(); i++) {
+        std::cout << myVector[i] << " ";
+    }
+    std::cout << std::endl;  // Output: 10 20 30
+
+    // Iterate over the vector using range-based loop
+    for (const auto& element : myVector) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;  // Output: 10 20 30
+
+    // Remove the last element
+    myVector.pop_back();
+
+    // Insert an element at a specific position
+    myVector.insert(myVector.begin() + 1, 15);
+
+    // Erase an element at a specific position
+    myVector.erase(myVector.begin() + 2);
+
+    // Clear the entire vector
+    myVector.clear();
+
+    // Check if the vector is empty
+    if (myVector.empty()) {
+        std::cout << "Vector is empty" << std::endl;
+    }
+
+    return 0;
+}
+```
+
 ### LIST 
+
+```C++
+#include <iostream>
+#include <list>
+
+int main() {
+    // Create a list of integers
+    std::list<int> myList;
+
+    // Add elements to the list
+    myList.push_back(10);
+    myList.push_back(20);
+    myList.push_back(30);
+
+    // Access elements using iterators
+    std::cout << *myList.begin() << std::endl;  // Output: 10
+
+    // Iterate over the list
+    for (const auto& element : myList) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;  // Output: 10 20 30
+
+    // Insert an element at the beginning
+    myList.push_front(5);
+
+    // Insert an element after a specific position
+    auto it = myList.begin();
+    std::advance(it, 2);
+    myList.insert(it, 15);
+
+    // Erase an element at a specific position
+    it = myList.begin();
+    std::advance(it, 1);
+    myList.erase(it);
+
+    // Remove elements with a specific value
+    myList.remove(30);
+
+    // Clear the entire list
+    myList.clear();
+
+    // Check if the list is empty
+    if (myList.empty()) {
+        std::cout << "List is empty" << std::endl;
+    }
+
+    return 0;
+}
+```
+
 ### STRING
+
+```C++
+#include <iostream>
+#include <string>
+
+int main() {
+    // Create a string
+    std::string myString = "Hello, World!";
+
+    // Access characters using indexing
+    char firstChar = myString[0];
+    std::cout << "First character: " << firstChar << std::endl;  // Output: H
+
+    // Modify characters
+    myString[7] = 'C';
+    std::cout << "Modified string: " << myString << std::endl;  // Output: Hello, Cold!
+
+    // Concatenate strings
+    std::string greeting = "Hello";
+    std::string name = "John";
+    std::string message = greeting + " " + name;
+    std::cout << "Concatenated string: " << message << std::endl;  // Output: Hello John
+
+    // Get the length of the string
+    std::cout << "Length of the string: " << myString.length() << std::endl;
+
+    // Find substrings
+    std::size_t position = myString.find("Cold");
+    if (position != std::string::npos) {
+        std::cout << "Substring found at position: " << position << std::endl;
+    } else {
+        std::cout << "Substring not found" << std::endl;
+    }
+
+    // Extract substrings
+    std::string extracted = myString.substr(7, 4);
+    std::cout << "Extracted substring: " << extracted << std::endl;  // Output: Cold
+
+    // Iterate over characters
+    for (char c : myString) {
+        std::cout << c << " ";
+    }
+    std::cout << std::endl;  // Output: H e l l o ,   C o l d !
+
+    return 0;
+}
+```
 ### MAP
+
+```C++
+#include <iostream>
+#include <map>
+
+int main() {
+    // Create a map with int keys and string values
+    std::map<int, std::string> myMap;
+
+    // Insert elements into the map
+    myMap.insert(std::make_pair(1, "Apple"));
+    myMap.insert(std::make_pair(2, "Banana"));
+    myMap.insert(std::make_pair(3, "Orange"));
+
+    // Access elements using their keys
+    std::cout << myMap[1] << std::endl;  // Output: "Apple"
+
+    // Check if a key exists in the map
+    if (myMap.find(2) != myMap.end()) {
+        std::cout << "Key 2 exists in the map" << std::endl;
+    }
+
+    // Iterate over the map
+    for (const auto& pair : myMap) {
+        std::cout << "Key: " << pair.first << ", Value: " << pair.second << std::endl;
+    }
+
+    // Erase an element from the map
+    myMap.erase(3);
+
+    // Clear the entire map
+    myMap.clear();
+
+    return 0;
+}
+```
 
 </details>
 
