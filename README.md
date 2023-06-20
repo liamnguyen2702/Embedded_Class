@@ -1,8 +1,8 @@
 <details>
   <summary> BASIC C++ </summary>
-
-### VECTOR
-
+<details>
+	<summary> VECTOR </summary>
+	
 ```C++
 #include <iostream>
 #include <vector>
@@ -51,8 +51,9 @@ int main() {
     return 0;
 }
 ```
-
-### LIST 
+</details>
+<details>
+	<summary> LIST </summary>
 
 ```C++
 #include <iostream>
@@ -103,8 +104,9 @@ int main() {
     return 0;
 }
 ```
-
-### STRING
+</details>
+<details>
+	<summary> STRING </summary>
 
 ```C++
 #include <iostream>
@@ -152,7 +154,9 @@ int main() {
     return 0;
 }
 ```
-### MAP
+</details>
+<details>
+	<summary> MAP </summary>
 
 ```C++
 #include <iostream>
@@ -189,7 +193,7 @@ int main() {
     return 0;
 }
 ```
-
+</details>
 </details>
 
 -------------------------------------------------------------
