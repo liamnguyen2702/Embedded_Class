@@ -2,6 +2,7 @@
 1 Binh Male 22 7.8 6.9 7.8
 2 Liem Male 25 10 10 10
 3 Thuong Female 18 6.7 5.8 7.9
-7 Anh Female 25 6.7 6.8 9.8
-8 Tran Male 22 5 6 7
-7 Liem Male 60 7.8 7.9 7
+8 Anh Female 25 6.7 6.8 9.8
+7 Tran Male 22 5 6 7
+6 Nhan Male 20 7.8 7.9 7
+4 Thao Female 16 6.9 6.9 6.9
