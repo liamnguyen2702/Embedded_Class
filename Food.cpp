@@ -1,353 +1,582 @@
 #include <iostream>
-#include <vector>
-#include <string.h>
+#include <list>
+#include <string>
 
 using namespace std;
 
-class Food
-{
-private:
-    int id;
-    string name;
-    double price;
-
-public:
-    Food(int id, string name, double price)
-    {
-        this->id = id;
-        this->name = name;
-        this->price = price;
-    }
-    void setAll(string name, double price)
-    {
-        this->name = name;
-        this->price = price;
-    }
-    int getId()
-    {
-        return this->id;
-    }
-    string getName()
-    {
-        return this->name;
-    }
-    double getPrice()
-    {
-        return this->price;
-    }
-};
-
-class Table {
-    vector<Food> foods;
-    char status;
-    int no;
-    public:
-    Table(int no, char status){
-        this->no = no;
-        this->status = status;
-    }
-    int getNo() { return this->no;}
-    char getStatus() { return this->status;}
-
-    void addFood(int id) {
-    }
-};
-
-class Employee
-{
-private:
-    int noTable;
-    std::vector<int> tables;
-    std::vector<char> status;
-    vector<Table> tablesMain;
-    // Menu menu;
-
-public:
-    void setNoTableEmp(int no)
-    {
-        for (int i = 0; i <= no ; i++)
-        {
-            Table t(i+1, 'o');
-            this->tablesMain.push_back(t);
-        }
-    }
-    void displayFoodMenu()
-    {
-
-        // for (Food f : this->manager.getlfood()) {
-        //     cout << f.getId() << " - " << f.getName() << " - " << f.getPrice() << endl;
-        // }
-    }
-    void addFoodToTable(int idBan) {
-        displayFoodMenu();
-    }
-    void menuEmployee()
-    {
-        printTable();
-        int idBan;
-        cout << "nhap so ban: ";
-        cin >> idBan;
-        do
-        {
-            cout << "Table " << idBan << ":" << endl;
-            cout << "1. Add Food to table" << endl;
-            cout << "2. Edit food" << endl;
-            cout << "3. delete food" << endl;
-            cout << "4. Display menu" << endl;
-            cout << "5. Thanh Toan" << endl;
-            cout << "6. Back" << endl;
-
-            int input = 0;
-            cin >> input;
-            switch (input)
-            {
-            case 1:
-                addFoodToTable(idBan);
-                break;
-            case 2:
-                // editFoodFromMenu();
-                break;
-            case 3:
-                // deleteFoodFromMenu();
-                break;
-            case 4:
-                // displayFoodMenu();
-                break;
-            case 5:
-                // setNoTable(e);
-                break;
-            default:
-                goto OUT1;
-            }
-        } while (true);
-    OUT1:;
-    }
-    void printTable()
-    {
-        int n = this->tablesMain.size();
-        cout << n << endl;
-
-        int columnWidth = 5;
-
-        std::string horizontalLine((columnWidth + 1) * (n + 1) + 2, '-');
-
-        std::cout << "+";
-        std::cout << horizontalLine;
-        std::cout << "+" << std::endl;
-
-        for (int i = 0; i < 2; i++)
-        {
-            std::cout << "|";
-            std::cout.width(columnWidth);
-            std::cout << (i == 0 ? " Tables " : " Status ");
-
-            for (int j = 0; j < n; j++)
-            {
-                std::cout << "|";
-                if (i == 0)
-                {
-                    std::cout.width(columnWidth);
-                    std::cout << this->tablesMain[j].getNo(); // this->tables[j];
-                }
-                else
-                {
-                    std::cout.width(columnWidth);
-                    std::cout << this->tablesMain[j].getStatus(); //this->status[j];
-                }
-            }
-            std::cout << "|" << std::endl;
-
-            std::cout << "+";
-            std::cout << horizontalLine;
-            std::cout << "+" << std::endl;
-        }
-    }
-};
-int countid = 1;
-class Menu {
-    vector<Food>* lFood;
-    public:
-    Menu() {
-        Food f1(countid++, "coca", 10);
-        Food f2(countid++, "pepsi", 20);
-        Food f3(countid++, "com tam", 50);
-        lFood->push_back(f1);
-        lFood->push_back(f2);
-        lFood->push_back(f3);
-    }
-    vector<Food>* getLFood() { return this->lFood; }
-};
-
-
-
 class Manager
 {
-private:
-    // vector<Food> lFood;
-    Menu* menu;
+protected:
+    int id;
+    string tenMon;
+    int soBan;
+    int price;
 
 public:
-    // vector<Food> getlfood() { return this->lFood;}
-    Manager(Menu* menu)
+    list<Manager> listFood;
+
+    Manager(int id, string tenMon, int price);
+
+    Manager();
+
+    void setTen(string tenMon);
+
+    void setGia(int price);
+
+    string getTenMon() const;
+
+    int getGiaMon() const;
+
+    void themMon();
+
+    void suaTenMon(int ID);
+
+    void suaGiaMon(int ID);
+
+    void xoaMon();
+
+    void displayMon();
+
+    void thietlapSoBan(int soBan);
+
+    int getSoBan();
+
+    int getID() const;
+
+    void setID(Manager a);
+};
+
+string Manager::getTenMon() const
+{
+    return tenMon;
+}
+
+int Manager::getGiaMon() const
+{
+    return price;
+}
+
+void Manager::setID(Manager a)
+{
+    static int id = 100;
+    Manager::id = id;
+    id++;
+}
+
+int Manager::getID() const
+{
+    return id;
+}
+
+Manager::Manager(int id, string tenMon, int price)
+{
+    Manager::id = id;
+    Manager::tenMon = tenMon;
+    Manager::price = price;
+}
+
+void Manager::themMon()
+{
+    string tenMon;
+    cout << "Nhap ten mon can them: " << endl;
+    cin >> tenMon;
+    int price;
+    cout << "Nhap gia: " << endl;
+    cin >> price;
+
+    Manager newFood{id, tenMon, price};
+    newFood.setID(newFood);
+    listFood.push_back(newFood);
+}
+
+void Manager::xoaMon()
+{
+    string tenMon;
+    cout << "Nhap vao ten mon can xoa: " << endl;
+    cin >> tenMon;
+    for (auto it = listFood.begin(); it != listFood.end();)
     {
-        this->menu = menu;
-        // lFood = menu.getLFood();
-        // Food f1(countid++, "coca", 10);
-        // Food f2(countid++, "pepsi", 20);
-        // Food f3(countid++, "com tam", 50);
-        // lFood.push_back(f1);
-        // lFood.push_back(f2);
-        // lFood.push_back(f3);
-    }
-    void displayFoodMenu()
-    {
-        for (Food f : *(menu->getLFood()))
+        if (it->tenMon == tenMon)
         {
-            cout << f.getId() << " - " << f.getName() << " - " << f.getPrice() << endl;
+            it = listFood.erase(it);
+        }
+        else
+        {
+            cout << "Khong co ten mon de xoa: " << endl;
+            ++it;
         }
     }
-    void displayLastFoodFromMenu()
-    {
-        Food f = (*(menu->getLFood()))[countid - 2];
-        cout << f.getId() << " - " << f.getName() << " - " << f.getPrice() << endl;
-    }
-    void displayFoodAtIdxFromMenu(int idx)
-    {
-        Food f = (*(menu->getLFood()))[idx];
-        cout << f.getId() << " - " << f.getName() << " - " << f.getPrice() << endl;
-    }
+}
 
-    void addFoodToMenu()
+void Manager::thietlapSoBan(int soBan)
+{
+    Manager::soBan = soBan;
+}
+
+int Manager::getSoBan()
+{
+    return soBan;
+}
+
+void Manager::displayMon()
+{
+    for (auto item : listFood)
     {
-        cout << "nhap ten mon: ";
-        string name;
-        cin >> name;
-        cout << "nhap gia mon: ";
-        double price;
-        cin >> price;
-        Food f(countid++, name, price);
-        (this->menu->getLFood())->push_back(f);
-        displayLastFoodFromMenu();
+        cout << "ID: " << item.id << endl;
+        cout << "Ten mon: " << item.tenMon << endl;
+        cout << "Gia: " << item.price << endl;
     }
-    int searchIdInList(int id)
+}
+
+void Manager::setTen(string tenMon)
+{
+    Manager::tenMon = tenMon;
+}
+
+void Manager::setGia(int price)
+{
+    Manager::price = price;
+}
+
+void Manager::suaTenMon(int ID)
+{
+    for (auto it = listFood.begin(); it != listFood.end(); ++it)
     {
-        for (int i = 0; i < menu->getLFood()->size(); i++)
+        if (it->id == ID)
         {
-            if (id == (*(this->menu->getLFood()))[i].getId())
+            it->displayMon();
+            string name;
+            cout << "Nhap ten can sua: " << endl;
+            cin >> name;
+            it->setTen(name);
+            cout << "Sua thanh cong!" << endl;
+            return;
+        }
+    }
+    cout << "ID khong ton tai " << endl;
+}
+
+void Manager::suaGiaMon(int ID)
+{
+    for (auto it = listFood.begin(); it != listFood.end(); ++it)
+    {
+        if (it->id == ID)
+        {
+            it->displayMon();
+            int price;
+            cout << "Nhap gia can sua: " << endl;
+            cin >> price;
+            it->setGia(price);
+            cout << "Sua gia thanh cong!" << endl;
+            return;
+        }
+    }
+    cout << "ID khong ton tai!" << endl;
+}
+
+class ThongTinBan : public Manager
+{
+protected:
+    int id;
+    int soluong;
+    int soBan;
+    bool trangThai;
+
+public:
+    list<ThongTinBan> orderList;
+
+    ThongTinBan(int id, int soluong, int soBan, bool trangThai);
+    ThongTinBan();
+    int getIDMonTaiBan() const;
+    int getSoLuong();
+    bool getTrangThai(int soBan);
+    void themMonTaiBan(int soBan);
+    void suaMonTaiBan(int soBan);
+    void xoaMonTaiBan(int soBan);
+    void thanhToan(int soBan);
+    void hienThiDanhSachMonTaiBan(int soBan);
+    void setID(int ID);
+    void setSoLuong(int soLuong);
+    void setTrangThai(int soBan);
+    int getSoBanDangGoiMon();
+    void xoaMonSaiID(int id);
+};
+
+ThongTinBan::ThongTinBan()
+{
+}
+
+ThongTinBan::ThongTinBan(int id, int soLuong, int soBan, bool trangThai)
+{
+    ThongTinBan::id = id;
+    ThongTinBan::soluong = soLuong;
+    ThongTinBan::soBan = soBan;
+    ThongTinBan::trangThai = trangThai;
+}
+
+int ThongTinBan::getSoBanDangGoiMon()
+{
+    return ThongTinBan::soBan;
+}
+
+int ThongTinBan::getIDMonTaiBan() const
+{
+    return ThongTinBan::id;
+}
+
+int ThongTinBan::getSoLuong()
+{
+    return ThongTinBan::soluong;
+}
+
+void ThongTinBan::setTrangThai(int soBan)
+{
+    ThongTinBan::trangThai = true;
+}
+
+bool ThongTinBan::getTrangThai(int soBan)
+{
+    for (auto item : orderList)
+    {
+        if (item.getSoBanDangGoiMon() == soBan)
+        {
+            return item.trangThai;
+        }
+    }
+    return false;
+}
+
+void ThongTinBan::setSoLuong(int soLuong)
+{
+    ThongTinBan::soluong = soLuong;
+}
+
+void ThongTinBan::setID(int ID)
+{
+    ThongTinBan::id = ID;
+}
+
+void ThongTinBan::themMonTaiBan(int soBan)
+{
+    int id;
+    cout << "Nhap id mon: " << endl;
+    cin >> id;
+    int soLuong;
+    cout << "Nhap so luong mon: " << endl;
+    cin >> soLuong;
+    bool trangThai2 = true;
+    ThongTinBan newMonTaiBan{id, soLuong, soBan, trangThai2};
+    orderList.push_back(newMonTaiBan);
+}
+
+void ThongTinBan::xoaMonSaiID(int id)
+{
+    for (auto it = orderList.begin(); it != orderList.end();)
+    {
+        if (it->id == id)
+        {
+            it = orderList.erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+}
+void ThongTinBan::suaMonTaiBan(int soBan)
+{
+    int id;
+    int soLuong;
+    cout << "Nhap id can sua: " << endl;
+    cin >> id;
+    cout << "Nhap so luong: " << endl;
+    cin >> soLuong;
+    for (auto &item : orderList)
+    {
+        if (item.soBan == soBan)
+        {
+            item.setID(id);
+            item.setSoLuong(soLuong);
+        }
+    }
+}
+
+void ThongTinBan::xoaMonTaiBan(int soBan)
+{
+    int id;
+    cout << "Nhap vao id mon can xoa: " << endl;
+    cin >> id;
+    for (auto it = orderList.begin(); it != orderList.end();)
+    {
+        if (it->getSoBanDangGoiMon() == soBan)
+        {
+            if (it->id == id)
             {
-                return i;
+                it = orderList.erase(it);
+                cout << "Da xoa thanh cong!" << endl;
+                return;
+            }
+            else
+            {
+                cout << "Khong co Id da nhap tai ban!" << endl;
+                ++it;
             }
         }
-        return -1;
-    }
-    void editFoodFromMenu()
-    {
-        displayFoodMenu();
-        int id = 0;
-        cout << "nhap id: ";
-        cin >> id;
-        int idx = searchIdInList(id);
-        if (idx == -1)
+        else
         {
-            cout << "id khong ton tai\n";
-            return;
+            cout << "Khong co so ban nhu tren!" << endl;
+            ++it;
         }
-        string name;
-        double price;
-        cout << "nhap ten mon an moi: ";
-        cin >> name;
-        cout << "nhap gia mon an moi: ";
-        cin >> price;
-
-        // (*(this->menu->getLFood())[idx]).setAll(name, price);
-        // cout << "da sua thanh: ";
-        // displayFoodAtIdxFromMenu(idx);
     }
-    void deleteFoodFromMenu()
+}
+
+void ThongTinBan::hienThiDanhSachMonTaiBan(int soBan)
+{
+    for (auto &item : orderList)
     {
-        displayFoodMenu();
-        int id = 0;
-        cout << "nhap id mon an muon xoa: ";
-        cin >> id;
-        int idx = searchIdInList(id);
-        if (idx == -1)
+        if (item.soBan == soBan)
         {
-            cout << "id khong ton tai\n";
-            return;
+            cout << "Id mon: " << item.getIDMonTaiBan() << endl;
+            cout << "so luong: " << item.getSoLuong() << endl;
         }
-        // vector<Food>::iterator it = this->menu->getLFood().begin();
-        // for (int i = 0; i < idx; i++, it++)
-        //     ;
-        // this->menu->getLFood().erase(it);
-        // // remove(lFood.begin(),lFood.end(),lFood[idx]);
-        // displayFoodMenu();
     }
-    void setNoTable()
-    {
-        // cout << "nhap tong so ban: ";
-        // int no;
-        // cin >> no;
-        // e->setNoTableEmp(no);
-    }
-    void menuManager()
-    {
-        do
-        {
-            cout << "Manager Menu: " << endl;
-            cout << "1. Add Food to Menu" << endl;
-            cout << "2. Edit food" << endl;
-            cout << "3. delete food" << endl;
-            cout << "4. Display menu" << endl;
-            cout << "5. Edit no Table" << endl;
-            cout << "6. Back" << endl;
+}
 
-            int input = 0;
-            cin >> input;
-            switch (input)
+void ThongTinBan::thanhToan(int soBan)
+{
+    int tongTien = 0;
+    for (auto &item : orderList)
+    {
+        if (item.soBan == soBan)
+        {
+            for (auto &food : listFood)
+            {
+                if (food.getID() == item.getIDMonTaiBan())
+                {
+                    tongTien += item.getSoLuong() * food.getGiaMon();
+                }
+            }
+        }
+    }
+    cout << "Tong so tien ban " << soBan << " la: " << tongTien << " $" << endl;
+}
+
+int main(int argc, char const *argv[])
+{
+    int choice;
+    Manager ql1;
+    ThongTinBan order1;
+    while (1)
+    {
+    L:
+        cout << "1. Quan ly" << endl;
+        cout << "2. Nhan vien" << endl;
+        cout << "Nhap vao: " << endl;
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+        B:
+            int input2;
+            cout << "1. Them mon" << endl;
+            cout << "2. Sua mon" << endl;
+            cout << "3. Xoa mon" << endl;
+            cout << "4. Danh sach mon" << endl;
+            cout << "5. Thiet lap so ban" << endl;
+            cout << "0. Quay lai" << endl;
+            cout << "Ban chon: " << endl;
+            cin >> input2;
+            switch (input2)
             {
             case 1:
-                addFoodToMenu();
-                continue;
+            L:
+                ql1.themMon();
+                int inputTieptuc;
+                cout << "1. Tiep tuc them mon" << endl;
+                cout << "0. Quay lai" << endl;
+                cout << "Ban chon: " << endl;
+                cin >> inputTieptuc;
+                switch (inputTieptuc)
+                {
+                case 1:
+                    goto L;
+                    break;
+                case 2:
+                    goto B;
+                    break;
+                default:
+                    break;
+                }
+                break;
             case 2:
-                editFoodFromMenu();
-                continue;
+                int idInput;
+                int selectionInput;
+                cout << "Nhap vao id mon can sua" << endl;
+                cin >> idInput;
+                cout << "1. Sua ten" << endl;
+                cout << "2. Sua gia" << endl;
+                cout << "0. Quay lai" << endl;
+                cout << "Ban chon: " << endl;
+                cin >> selectionInput;
+                switch (selectionInput)
+                {
+                case 1:
+                    ql1.suaTenMon(idInput);
+                    break;
+                case 2:
+                    ql1.suaGiaMon(idInput);
+                    break;
+                case 0:
+                    goto L;
+                    break;
+                default:
+                    break;
+                }
+                break;
             case 3:
-                deleteFoodFromMenu();
-                continue;
+                ql1.xoaMon();
+                break;
             case 4:
-                displayFoodMenu();
-                continue;
+                ql1.displayMon();
+                break;
             case 5:
-                setNoTable();
-                continue;
+                int soBanInput;
+                cout << "Nhap vao so ban:  " << endl;
+                cin >> soBanInput;
+                ql1.thietlapSoBan(soBanInput);
+                break;
+            case 0:
+                goto L;
             default:
                 break;
             }
             break;
-        } while (true);
-    }
-};
-
-int main()
-{
-    Menu* menu = new Menu();
-    Manager* manager = new Manager(menu);
-    Employee* employee = new Employee();
-    do
-    {
-        int input = 0;
-        cout << "1 - manager\n2 - employee\n";
-        cin >> input;
-        switch (input)
-        {
-        case 1:
-            manager->menuManager();
-            continue;
-        default: 
-            employee->menuEmployee();
-            continue;
+        case 2:
+            if (ql1.getSoBan() == 0)
+            {
+                cout << "Vui long thiet lap so ban truoc khi goi mon!" << endl;
+                goto L;
+            }
+            else if (ql1.listFood.size() == 0)
+            {
+                cout << "Vui long bo sung danh sach mon an truoc khi goi mon!" << endl;
+                goto L;
+            }
+            int soBan;
+            cout << "------------------Thong tin------------------" << endl;
+            cout << "So ban duoc thiet lap: " << ql1.getSoBan() << endl;
+            for (int i = 0; i < ql1.getSoBan(); i++)
+            {
+                cout << "Ban " << i + 1 << " - Trang thai: " << order1.getTrangThai(i + 1) << endl;
+            }
+            cout << "Nhap vao so ban: " << endl;
+            cout << "0. Quay lai" << endl;
+            cout << "Nhap vao so ban: " << endl;
+            cin >> soBan;
+            switch (soBan)
+            {
+            case 1:
+            K:
+                int inputTaiBan;
+                cout << "1. Them mon tai ban" << endl;
+                cout << "2. Sua mon tai ban" << endl;
+                cout << "3. Xoa mon tai ban" << endl;
+                cout << "4. Danh sach mon tai ban" << endl;
+                cout << "5. Thanh toan" << endl;
+                cout << "0. Quay lai" << endl;
+                cout << "Ban chon: " << endl;
+                cin >> inputTaiBan;
+                switch (inputTaiBan)
+                {
+                case 1:
+                A:
+                    ql1.displayMon();
+                    order1.themMonTaiBan(soBan);
+                    for (auto it = order1.orderList.begin(); it != order1.orderList.end();)
+                    {
+                        bool found = false;
+                        for (auto &food : ql1.listFood)
+                        {
+                            if (food.getID() == it->getIDMonTaiBan())
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found)
+                        {
+                            cout << "Id nhap vao khong ton tai. Nhap lai: " << endl;
+                            order1.xoaMonSaiID(it->getIDMonTaiBan());
+                            cout << "Da xoa id mon: " << endl;
+                            goto A;
+                        }
+                        ++it;
+                    }
+                B:
+                    int inputTaiBan;
+                    cout << "1.Tiep tuc" << endl;
+                    cout << "0.Quay lai" << endl;
+                    cout << "Enter: " << endl;
+                    cin >> inputTaiBan;
+                    switch (inputTaiBan)
+                    {
+                    case 1:
+                        goto A;
+                        break;
+                    case 0:
+                        goto K;
+                        break;
+                    default:
+                        break;
+                    }
+                    break;
+                case 2:
+                    order1.hienThiDanhSachMonTaiBan(soBan);
+                    order1.suaMonTaiBan(soBan);
+                    break;
+                case 3:
+                    order1.hienThiDanhSachMonTaiBan(soBan);
+                    order1.xoaMonTaiBan(soBan);
+                    break;
+                case 4:
+                    order1.hienThiDanhSachMonTaiBan(soBan);
+                    for (const auto &order : order1.orderList)
+                    {
+                        for (const auto &item : ql1.listFood)
+                        {
+                            if (item.getID() == order.getIDMonTaiBan())
+                            {
+                                cout << "Ten mon: " << item.getTenMon() << endl;
+                                cout << "Gia tien: " << item.getGiaMon() << endl;
+                                continue;
+                            }
+                        }
+                    }
+                    break;
+                case 5:
+                    order1.thanhToan(soBan);
+                    break;
+                case 0:
+                    goto K;
+                    break;
+                default:
+                    break;
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 0:
+                goto L;
+                break;
+            default:
+                break;
+            }
+            break;
+        default:
+            break;
         }
-
-    } while (true);
-
+    }
+    return 0;
 }
